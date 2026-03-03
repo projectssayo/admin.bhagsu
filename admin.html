@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>BHAGSU MENU EDIT</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/doeeoa5f1/image/upload/v1772536802/jyn5elzzjimje0vjrq27.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ----- BLACK & WHITE MINIMALIST THEME (awwwards inspired) ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.5;
+            padding: 0 0 80px 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        button, .btn, [role="button"] {
+            min-height: 48px;
+            min-width: 48px;
+            touch-action: manipulation;
+            transition: all 0.2s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: #ffffff;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #000000;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 2rem 0 2rem;
+            font-weight: 600;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #f0f0f0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #4d4d4d;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 0.9rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 0;
+            background: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #000000;
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+        }
+
+        .btn {
+            background: #000000;
+            color: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 0;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+
+        .btn:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn.secondary {
+            background: #ffffff;
+            color: #000000;
+            border: 2px solid #cccccc;
+        }
+
+        .btn.secondary:hover {
+            background: #f2f2f2;
+            border-color: #000000;
+        }
+
+        .btn.small {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+            min-height: 40px;
+        }
+
+        .btn.danger {
+            background: #ffffff;
+            color: #cc0000;
+            border-color: #cc0000;
+        }
+
+        .btn.danger:hover {
+            background: #cc0000;
+            color: #ffffff;
+            border-color: #cc0000;
+        }
+
+        .fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #000000;
+            color: #ffffff;
+            width: 64px;
+            height: 64px;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 20;
+            border: 2px solid #000000;
+        }
+
+        .fab:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .fab:active {
+            transform: scale(0.9);
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 0;
+            padding: 0.2rem 0.2rem 0.2rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-container i {
+            color: #7a7a7a;
+            font-size: 1.2rem;
+            margin-right: 0.8rem;
+        }
+
+        .search-container input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            padding: 0.9rem 0;
+            outline: none;
+        }
+
+        .search-container button {
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 0;
+            padding: 0.6rem 1.5rem;
+            font-weight: 500;
+            min-width: auto;
+            cursor: pointer;
+            border: 2px solid #000000;
+        }
+
+        .search-container button:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .item-card {
+            background: #ffffff;
+            border-radius: 0;
+            border: 1px solid #f0f0f0;
+            padding: 1.5rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .item-card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            border-color: #cccccc;
+        }
+
+        .item-card.highlight {
+            border: 2px solid #000000;
+            animation: pulse-black 0.8s ease-out;
+        }
+
+        @keyframes pulse-black {
+            0% { box-shadow: 0 0 0 0 #00000055; }
+            70% { box-shadow: 0 0 0 10px #00000000; }
+            100% { box-shadow: 0 0 0 0 #00000000; }
+        }
+
+        .item-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 0;
+            background: #fafafa;
+            margin-bottom: 1rem;
+            border: 1px solid #eeeeee;
+        }
+
+        .item-image-placeholder {
+            width: 100%;
+            height: 160px;
+            border-radius: 0;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7a7a7a;
+            font-size: 0.9rem;
+            border: 1px dashed #cccccc;
+            margin-bottom: 1rem;
+        }
+
+        .item-card h3 {
+            font-size: 1.3rem;
+            color: #000000;
+            margin-bottom: 0.2rem;
+            font-weight: 600;
+        }
+
+        .item-category {
+            display: inline-block;
+            background: #f2f2f2;
+            padding: 0.3rem 1rem;
+            border-radius: 0;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin: 0.5rem 0;
+            letter-spacing: 0.5px;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: #000000;
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+        }
+
+        .badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 0;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            background: #f2f2f2;
+            color: #000000;
+        }
+
+        .badge.green {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .badge.red {
+            background: #cccccc;
+            color: #000000;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: none;
+        }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ffffff;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            width: 90%;
+            max-width: 600px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 2.5rem;
+            z-index: 1001;
+            display: none;
+            border: 1px solid #000000;
+        }
+
+        .modal.show, .modal-overlay.show {
+            display: block;
+        }
+
+        #snackbar {
+            visibility: hidden;
+            min-width: 280px;
+            background: #000000;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 0;
+            padding: 16px 24px;
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+            border: 1px solid #ffffff;
+        }
+
+        #snackbar.show {
+            visibility: visible;
+            animation: fadein 0.3s, fadeout 0.3s 2.7s;
+        }
+
+        @keyframes fadein {
+            from { bottom: 0; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+        @keyframes fadeout {
+            from { bottom: 30px; opacity: 1; }
+            to { bottom: 0; opacity: 0; }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #7a7a7a;
+        }
+        .error {
+            background: #f2f2f2;
+            border: 1px solid #cccccc;
+            border-radius: 0;
+            padding: 1rem;
+            margin: 1rem 0;
+            color: #cc0000;
+        }
+
+        /* Responsive fix for signature form */
+        #addSignatureForm {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 600px) {
+            #addSignatureForm {
+                grid-template-columns: 1fr;
+            }
+            .section {
+                padding: 1.5rem;
+            }
+            .modal {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">BHAGSU MENU EDIT · ADMIN</div>
+    <a href="https://bhagsu.onrender.com/menu" class="btn secondary small" target="_blank"><i class="fas fa-external-link-alt"></i> View Menu</a>
+</nav>
+
+<div class="container">
+    <h1>admin panel</h1>
+
+    <!-- Add New Menu Item -->
+    <div class="section" id="addSection">
+        <div class="section-title"><i class="fas fa-plus"></i> Add new item</div>
+        <div class="form-grid" id="addForm">
+            <div class="form-group"><label>Name *</label><input type="text" id="addName" placeholder="e.g. Veg Momos"></div>
+            <div class="form-group"><label>Description *</label><textarea id="addDesc" rows="2"></textarea></div>
+            <div class="form-group"><label>Price (₹)</label><input type="number" id="addPrice" step="0.01"></div>
+            <div class="form-group"><label>Category</label><input type="text" id="addCategory" placeholder="Snacks"></div>
+            <div class="form-group"><label>Image URL</label><input type="url" id="addImage"></div>
+            <div class="form-group"><label>Available</label><select id="addAvailable"><option value="true">Yes</option><option value="false">No</option></select></div>
+        </div>
+        <button class="btn" id="addItemBtn"><i class="fas fa-save"></i> Add Item</button>
+    </div>
+
+    <!-- Current Menu Items -->
+    <div class="section">
+        <div class="section-title"><i class="fas fa-list"></i> Current menu</div>
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="menuSearch" placeholder="Search by name...">
+            <button id="clearSearchBtn" class="small">Clear</button>
+        </div>
+        <div id="menuItemsContainer" class="loading"><i class="fas fa-spinner fa-pulse"></i> Loading items...</div>
+    </div>
+
+    <!-- Signature Items -->
+    <div class="section">
+        <div class="section-title"><i class="fas fa-star"></i> Signature items</div>
+        <div class="form-grid" id="addSignatureForm">
+            <div class="form-group"><label>Name *</label><input type="text" id="sigName"></div>
+            <div class="form-group"><label>Description *</label><textarea id="sigDesc" rows="2"></textarea></div>
+            <div class="form-group"><label>Price (₹)</label><input type="number" id="sigPrice" step="0.01"></div>
+            <div class="form-group"><label>Category</label><input type="text" id="sigCategory"></div>
+            <div class="form-group"><label>Image URL</label><input type="url" id="sigImage"></div>
+            <div class="form-group"><label>Available</label><select id="sigAvailable"><option value="true">Yes</option><option value="false">No</option></select></div>
+        </div>
+        <button class="btn" id="addSignatureBtn"><i class="fas fa-save"></i> Add Signature</button>
+        <div id="signatureItemsContainer" style="margin-top:2rem;"></div>
+    </div>
+</div>
+
+<!-- FAB for quick add (mobile) -->
+<button class="fab" id="fabAdd"><i class="fas fa-plus"></i></button>
+
+<!-- Edit Modal (instant) -->
+<div class="modal-overlay" id="modalOverlay"></div>
+<div class="modal" id="editModal">
+    <h2 style="margin-bottom:1.5rem; font-weight:600;"><i class="fas fa-edit"></i> Edit item</h2>
+    <form id="editForm">
+        <input type="hidden" id="editOriginalName">
+        <div class="form-group"><label>Name</label><input type="text" id="editName" required></div>
+        <div class="form-group"><label>Description</label><textarea id="editDesc" rows="2" required></textarea></div>
+        <div class="form-group"><label>Price (₹)</label><input type="number" id="editPrice" step="0.01" required></div>
+        <div class="form-group"><label>Category</label><input type="text" id="editCategory" required></div>
+        <div class="form-group"><label>Image URL</label><input type="url" id="editImage"></div>
+        <div class="form-group"><label>Available</label><select id="editAvailable"><option value="true">Yes</option><option value="false">No</option></select></div>
+        <div style="display:flex; gap:1rem; margin-top:2rem;">
+            <button type="submit" class="btn"><i class="fas fa-sync-alt"></i> Update</button>
+            <button type="button" class="btn secondary" id="cancelEditBtn"><i class="fas fa-times"></i> Cancel</button>
+        </div>
+    </form>
+</div>
+
+<!-- Snackbar -->
+<div id="snackbar"><i class="fas fa-check-circle"></i> <span></span></div>
+
+<script>
+    const API_BASE = '/api';
+    let allMenuItems = [];
+    let currentSearchTerm = '';
+    let highlightAfterLoad = null;
+
+    function showSnackbar(message, isError = false) {
+        const snack = document.getElementById('snackbar');
+        snack.innerHTML = `<i class="fas ${isError ? 'fa-exclamation-circle' : 'fa-check-circle'}"></i> <span>${message}</span>`;
+        snack.classList.add('show');
+        setTimeout(() => snack.classList.remove('show'), 3000);
+    }
+
+    async function apiCall(url, options = {}) {
+        const res = await fetch(API_BASE + url, options);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+    }
+
+    function renderMenuItems(items, highlightName = null) {
+        const container = document.getElementById('menuItemsContainer');
+        if (!items || items.length === 0) {
+            container.innerHTML = '<div style="padding:2rem; text-align:center; color:#7a7a7a;">No items match your search.</div>';
+            return;
+        }
+        let html = '<div class="items-grid">';
+        items.forEach(item => {
+            const available = item.available !== false;
+            const imageHtml = item.image_url
+                ? `<img src="${escapeHtml(item.image_url)}" alt="${escapeHtml(item.name)}" class="item-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />`
+                : `<div class="item-image-placeholder"><i class="fas fa-image"></i> No image</div>`;
+            const highlightClass = (highlightName && item.name === highlightName) ? 'highlight' : '';
+            html += `
+                <div class="item-card ${highlightClass}" data-name="${escapeHtml(item.name)}">
+                    ${imageHtml}
+                    <h3>${escapeHtml(item.name)}</h3>
+                    <div class="item-category">${escapeHtml(item.category || 'Other')}</div>
+                    <p style="font-size:0.9rem; color:#4d4d4d;">${escapeHtml(item.description || '')}</p>
+                    <div class="item-price">₹${item.price || 0}</div>
+                    <div><span class="badge ${available ? 'green' : 'red'}">${available ? 'available' : 'unavailable'}</span></div>
+                    <div class="item-actions">
+                        <button class="btn small edit-btn" data-name="${escapeHtml(item.name)}"><i class="fas fa-pen"></i> Edit</button>
+                        <button class="btn small secondary delete-btn" data-name="${escapeHtml(item.name)}"><i class="fas fa-trash"></i> Delete</button>
+                    </div>
+                </div>
+            `;
+        });
+        html += '</div>';
+        container.innerHTML = html;
+
+        document.querySelectorAll('.edit-btn').forEach(btn => {
+            btn.addEventListener('click', () => openEditModal(btn.dataset.name));
+        });
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', () => deleteItem(btn.dataset.name));
+        });
+
+        if (highlightName) {
+            const highlightedCard = document.querySelector(`.item-card.highlight`);
+            if (highlightedCard) highlightedCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    async function loadMenuItems(highlightName = null) {
+        const container = document.getElementById('menuItemsContainer');
+        container.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-pulse"></i> Loading...</div>';
+        try {
+            const data = await apiCall('/get_all');
+            if (!data.success) throw new Error(data.message);
+            allMenuItems = data.menu || [];
+            applySearchAndRender(highlightName);
+        } catch (err) {
+            container.innerHTML = `<div class="error"><i class="fas fa-exclamation-triangle"></i> ${err.message}</div>`;
+        }
+    }
+
+    function applySearchAndRender(highlightName = null) {
+        const term = currentSearchTerm.toLowerCase().trim();
+        const filtered = term ? allMenuItems.filter(item => item.name.toLowerCase().includes(term)) : allMenuItems;
+        renderMenuItems(filtered, highlightName);
+    }
+
+    document.getElementById('menuSearch').addEventListener('input', (e) => {
+        currentSearchTerm = e.target.value;
+        applySearchAndRender();
+    });
+    document.getElementById('clearSearchBtn').addEventListener('click', () => {
+        document.getElementById('menuSearch').value = '';
+        currentSearchTerm = '';
+        applySearchAndRender();
+    });
+
+    document.getElementById('addItemBtn').addEventListener('click', async () => {
+        const name = document.getElementById('addName').value.trim();
+        const desc = document.getElementById('addDesc').value.trim();
+        if (!name || !desc) {
+            showSnackbar('Name and Description required', true);
+            return;
+        }
+        const price = document.getElementById('addPrice').value;
+        const category = document.getElementById('addCategory').value;
+        const image = document.getElementById('addImage').value;
+        const available = document.getElementById('addAvailable').value === 'true';
+
+        const btn = document.getElementById('addItemBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Adding...';
+
+        try {
+            const params = new URLSearchParams({ name, description: desc, price, category, available });
+            if (image) params.append('image_url', image);
+            const res = await apiCall(`/insert?${params.toString()}`, { method: 'POST' });
+            if (!res.success) throw new Error(res.message);
+            document.getElementById('addName').value = '';
+            document.getElementById('addDesc').value = '';
+            document.getElementById('addPrice').value = '';
+            document.getElementById('addCategory').value = '';
+            document.getElementById('addImage').value = '';
+            document.getElementById('addAvailable').value = 'true';
+            showSnackbar('Item added');
+            loadMenuItems();
+        } catch (err) {
+            showSnackbar('Error: ' + err.message, true);
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-save"></i> Add Item';
+        }
+    });
+
+    document.getElementById('fabAdd').addEventListener('click', () => {
+        document.getElementById('addName').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('addName').focus();
+    });
+
+    async function deleteItem(name) {
+        if (!confirm(`Delete "${name}"?`)) return;
+        try {
+            const res = await apiCall(`/delete?name=${encodeURIComponent(name)}`, { method: 'DELETE' });
+            if (!res.success) throw new Error(res.message);
+            showSnackbar('Item deleted');
+            loadMenuItems();
+        } catch (err) {
+            showSnackbar('Delete error: ' + err.message, true);
+        }
+    }
+
+    const modal = document.getElementById('editModal');
+    const overlay = document.getElementById('modalOverlay');
+    const cancelBtn = document.getElementById('cancelEditBtn');
+
+    function openEditModal(name) {
+        const item = allMenuItems.find(i => i.name === name);
+        if (!item) {
+            showSnackbar('Item not found', true);
+            return;
+        }
+        document.getElementById('editOriginalName').value = item.name;
+        document.getElementById('editName').value = item.name;
+        document.getElementById('editDesc').value = item.description || '';
+        document.getElementById('editPrice').value = item.price || 0;
+        document.getElementById('editCategory').value = item.category || '';
+        document.getElementById('editImage').value = item.image_url || '';
+        document.getElementById('editAvailable').value = item.available !== false ? 'true' : 'false';
+        modal.classList.add('show');
+        overlay.classList.add('show');
+    }
+
+    function closeModal() {
+        modal.classList.remove('show');
+        overlay.classList.remove('show');
+    }
+
+    cancelBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+
+    document.getElementById('editForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const originalName = document.getElementById('editOriginalName').value;
+        const newName = document.getElementById('editName').value.trim();
+        const newDesc = document.getElementById('editDesc').value.trim();
+        const newPrice = document.getElementById('editPrice').value;
+        const newCategory = document.getElementById('editCategory').value.trim();
+        const newImage = document.getElementById('editImage').value.trim();
+        const newAvailable = document.getElementById('editAvailable').value;
+
+        if (!newName || !newDesc) {
+            showSnackbar('Name and description required', true);
+            return;
+        }
+
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Updating...';
+
+        try {
+            const params = new URLSearchParams({
+                name: originalName,
+                new_name: newName,
+                description: newDesc,
+                price: newPrice,
+                category: newCategory,
+                available: newAvailable
+            });
+            if (newImage) params.append('image_url', newImage);
+
+            const res = await apiCall(`/update_full?${params.toString()}`, { method: 'PUT' });
+            if (!res.success) throw new Error(res.message);
+
+            showSnackbar('Item updated');
+            closeModal();
+            highlightAfterLoad = newName;
+            await loadMenuItems(newName);
+        } catch (err) {
+            showSnackbar('Update error: ' + err.message, true);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Update';
+        }
+    });
+
+    // Signature items
+    async function loadSignatureItems() {
+        const container = document.getElementById('signatureItemsContainer');
+        container.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-pulse"></i> Loading...</div>';
+        try {
+            const data = await apiCall('/get_signature_food');
+            if (!data.success) throw new Error(data.message);
+            if (!data.signature_food || data.signature_food.length === 0) {
+                container.innerHTML = '<p style="padding:1rem; color:#7a7a7a;">No signature items yet.</p>';
+                return;
+            }
+            let html = '<div class="items-grid">';
+            data.signature_food.forEach(item => {
+                const available = item.available !== false;
+                const imageHtml = item.image_url
+                    ? `<img src="${escapeHtml(item.image_url)}" alt="${escapeHtml(item.name)}" class="item-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />`
+                    : `<div class="item-image-placeholder"><i class="fas fa-image"></i> No image</div>`;
+                html += `
+                    <div class="item-card" data-sig-name="${escapeHtml(item.name)}">
+                        ${imageHtml}
+                        <h3>${escapeHtml(item.name)}</h3>
+                        <div class="item-category">${escapeHtml(item.category || 'Signature')}</div>
+                        <p style="font-size:0.9rem;">${escapeHtml(item.description || '')}</p>
+                        <div class="item-price">₹${item.price || 0}</div>
+                        <div><span class="badge ${available ? 'green' : 'red'}">${available ? 'available' : 'unavailable'}</span></div>
+                        <div class="item-actions">
+                            <button class="btn small danger delete-sig-btn" data-sig-name="${escapeHtml(item.name)}"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+            document.querySelectorAll('.delete-sig-btn').forEach(btn => {
+                btn.addEventListener('click', () => deleteSignatureItem(btn.dataset.sigName));
+            });
+        } catch (err) {
+            container.innerHTML = `<div class="error">Failed: ${err.message}</div>`;
+        }
+    }
+
+    // ✅ FIXED: changed method from 'GET' to 'DELETE'
+    async function deleteSignatureItem(name) {
+        if (!confirm(`Delete signature "${name}"?`)) return;
+        try {
+            const res = await apiCall(`/delete_signature_food?name=${encodeURIComponent(name)}`, { method: 'DELETE' });
+            if (!res.success) throw new Error(res.message);
+            showSnackbar('Signature deleted');
+            loadSignatureItems();
+        } catch (err) {
+            showSnackbar('Error: ' + err.message, true);
+        }
+    }
+
+    document.getElementById('addSignatureBtn').addEventListener('click', async () => {
+        const name = document.getElementById('sigName').value.trim();
+        const desc = document.getElementById('sigDesc').value.trim();
+        if (!name || !desc) {
+            showSnackbar('Name and Description required', true);
+            return;
+        }
+        const price = document.getElementById('sigPrice').value;
+        const category = document.getElementById('sigCategory').value;
+        const image = document.getElementById('sigImage').value;
+        const available = document.getElementById('sigAvailable').value === 'true';
+
+        const btn = document.getElementById('addSignatureBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Adding...';
+
+        try {
+            const params = new URLSearchParams({ name, description: desc, price, category, available });
+            if (image) params.append('image_url', image);
+            const res = await apiCall(`/insert_signature?${params.toString()}`, { method: 'POST' });
+            if (!res.success) throw new Error(res.message);
+            document.getElementById('sigName').value = '';
+            document.getElementById('sigDesc').value = '';
+            document.getElementById('sigPrice').value = '';
+            document.getElementById('sigCategory').value = '';
+            document.getElementById('sigImage').value = '';
+            document.getElementById('sigAvailable').value = 'true';
+            showSnackbar('Signature added');
+            loadSignatureItems();
+        } catch (err) {
+            showSnackbar('Error: ' + err.message, true);
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-save"></i> Add Signature';
+        }
+    });
+
+    function escapeHtml(unsafe) {
+        if (!unsafe) return '';
+        return String(unsafe)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    loadMenuItems();
+    loadSignatureItems();
+</script>
+</body>
+</html>
