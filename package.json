@@ -1,0 +1,22 @@
+{
+  "name": "bhagsu-fast-food",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "description": "Bhagsu Fast Food website with Node.js backend",
+  "main": "server.js",
+  "author": "Your Name",
+  "license": "ISC"
+}
