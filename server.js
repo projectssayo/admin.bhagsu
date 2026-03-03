@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 7777;
+const PORT = process.env.PORT || 7452;
 const FAST_API_URL = 'https://sayo-menu-api.onrender.com';
 
 app.use(express.json());
